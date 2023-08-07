@@ -28,3 +28,52 @@ public class Main {
         this.right = null;
     }
 }
+
+OUTPUT->
+
+Enter data
+2
+Enter data for Left:2
+Enter data
+4
+Enter data for Left:4
+Enter data
+7
+Enter data for Left:7
+Enter data
+6
+Enter data for Left:6
+Enter data
+-1
+Enter data for Right:6
+Enter data
+-1
+Enter data for Right:7
+Enter data
+-1
+Enter data for Right:4
+Enter data
+10
+Enter data for Left:10
+Enter data
+-1
+Enter data for Right:10
+Enter data
+-1
+Enter data for Right:2
+Enter data
+1
+Enter data for Left:1
+Enter data
+4
+Enter data for Left:4
+Enter data
+-1
+Enter data for Right:4
+Enter data
+-1
+Enter data for Right:1
+Enter data
+-1
+
+Process finished with exit code 0
