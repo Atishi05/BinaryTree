@@ -1,0 +1,62 @@
+package com.company;
+import java.util.*;
+public class Main {
+    static Scanner sc = null;
+    public static void main(String[] args) {
+        sc = new Scanner(System.in);
+        Node root = createTree();
+        System.out.println(height(root));
+    }
+    public static Node createTree(){
+        Node root = null;
+        System.out.println("Enter data");
+        int data = sc.nextInt();
+        if(data == -1)  return null;
+        root = new Node(data);
+        System.out.println("Enter data for Left:"+ data);
+        root.left = createTree();
+        System.out.println("Enter data for Right:"+ data);
+        root.right = createTree();
+        return root;
+    }
+    public  static int height(Node root){
+        if(root == null) return 0;
+        else
+            return (1 + Math.max(height(root.left),height(root.right)));
+    }
+}
+ class Node{
+    Node right, left;
+    int data;
+    public Node(int data){
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+OUTPUT-->
+
+Enter data
+2
+Enter data for Left:2
+Enter data
+4
+Enter data for Left:4
+Enter data
+-1
+Enter data for Right:4
+Enter data
+-1
+Enter data for Right:2
+Enter data
+6
+Enter data for Left:6
+Enter data
+-1
+Enter data for Right:6
+Enter data
+-1
+2
+
+Process finished with exit code 0
