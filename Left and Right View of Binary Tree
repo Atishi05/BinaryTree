@@ -1,0 +1,117 @@
+package com.company;
+import java.util.*;
+import java.util.List;
+
+public class Main {
+    static Scanner sc = null;
+    public static void main(String[] args) {
+        sc = new Scanner(System.in);
+        Node root = createTree();
+        printLeftView(root);
+        printRightView(root);
+    }
+    public static Node createTree(){
+        Node root = null;
+        System.out.println("Enter data");
+        int data = sc.nextInt();
+        if(data == -1)  return null;
+        root = new Node(data);
+        System.out.println("Enter data for Left:"+ data);
+        root.left = createTree();
+        System.out.println("Enter data for Right:"+ data);
+        root.right = createTree();
+        return root;
+    }
+    public static void printLeftView(Node root){
+        List<Node> ans = new ArrayList<>();
+        printL(root,ans,0);
+        for(Node curr:ans){
+            System.out.print(curr.data+" ");
+        }
+        System.out.println();
+    }
+    public static void printL(Node root,List<Node> ans, int level){
+        if(root == null) return;
+        if(ans.size() == level){
+            ans.add(root);
+        }
+        printL(root.left,ans,level+1);
+        printL(root.right,ans,level+1);
+    }
+    public static void printRightView(Node root){
+        List<Node> ans = new ArrayList<>();
+        printR(root,ans,0);
+        for(Node curr:ans){
+            System.out.print(curr.data+" ");
+        }
+        System.out.println();
+    }
+    public static void printR(Node root,List<Node> ans, int level){
+        if(root == null) return;
+        if(ans.size() == level)
+            ans.add(root);
+        printL(root.right,ans,level+1);
+        printL(root.left,ans,level+1);
+    }
+}
+ class Node{
+    Node right, left;
+    int data;
+    public Node(int data){
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+OUTPUT --> O(n) & O(h)
+
+Enter data
+1
+Enter data for Left:1
+Enter data
+7
+Enter data for Left:7
+Enter data
+-1
+Enter data for Right:7
+Enter data
+-1
+Enter data for Right:1
+Enter data
+6
+Enter data for Left:6
+Enter data
+-1
+Enter data for Right:6
+Enter data
+2
+Enter data for Left:2
+Enter data
+5
+Enter data for Left:5
+Enter data
+-1
+Enter data for Right:5
+Enter data
+-1
+Enter data for Right:2
+Enter data
+1
+Enter data for Left:1
+Enter data
+3
+Enter data for Left:3
+Enter data
+-1
+Enter data for Right:3
+Enter data
+-1
+Enter data for Right:1
+Enter data
+-1
+1 7 2 5 3 
+1 6 2 5 3 
+
+Process finished with exit code 0
+
